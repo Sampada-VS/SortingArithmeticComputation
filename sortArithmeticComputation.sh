@@ -17,7 +17,7 @@ for (( i=1; i<=4; i++ ))
 do
 	for (( j=$(($i+1)); j<=4; j++ ))
 	do
-		if (( $(awk 'BEGIN {print ('${computeArray[$i]}' > '${comput>
+                if (( $(awk 'BEGIN {print ('${computeArray[$i]}' > '${computeArray[$j]}')}') ))
 		then
 			temp=${computeArray[$i]}
 			computeArray[$i]=${computeArray[$j]}
@@ -25,4 +25,4 @@ do
 		fi
 	done
 done
-echo "Result in ascending order :" ${computeArray[@]}
+echo "Result in Descending order :" ${computeArray[@]}
