@@ -1,6 +1,11 @@
 #!/bin/bash -x
 read -p "Enter three numbers :" a b c
-compute1=`awk "BEGIN{ print $a+$b*$c }"`
-compute2=`awk "BEGIN{ print $a*$b+$c }"`
-compute3=`awk "BEGIN{ print $c+$a/$b }"`
-compute4=`awk "BEGIN{ print $a%$b+$c }"`
+declare -A computeDict
+
+computeDict["a+b*c"]=`awk "BEGIN{ print $a+$b*$c }"`
+computeDict["a*b+c"]=`awk "BEGIN{ print $a*$b+$c }"`
+computeDict["c+a/b"]=`awk "BEGIN{ print $c+$a/$b }"`
+computeDict["a%b+c"]=`awk "BEGIN{ print $a%$b+$c }"`
+
+echo ${!computeDict[@]}
+echo ${computeDict[@]}
